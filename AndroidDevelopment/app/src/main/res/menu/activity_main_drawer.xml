@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_newlist"
+            android:icon="@drawable/ic_newlist"
+            android:title="@string/menu_new_list" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_list"
+            android:title="@string/menu_another_lists" />
+        <item
+            android:id="@+id/nav_mapshow"
+            android:icon="@drawable/ic_map"
+            android:title="@string/menu_show_markets" />
+    </group>
+</menu>
