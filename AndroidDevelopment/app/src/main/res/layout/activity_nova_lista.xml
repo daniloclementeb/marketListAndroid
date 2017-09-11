@@ -25,7 +25,7 @@
         tools:layout_editor_absoluteX="8dp">
         <CheckBox
             android:gravity="center"
-            android:layout_marginLeft="280dp"
+            android:layout_marginLeft="230dp"
             android:layout_width="40sp"
             android:id="@+id/chkAlert"
             android:textColor="@color/text_color"

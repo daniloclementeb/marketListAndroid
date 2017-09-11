@@ -52,6 +52,13 @@ public class ListasActivity extends AppCompatActivity {
         carregaFrame();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(ListasActivity.this, MainActivity.class);
+        startActivity(i);
+    }
+
     private void carregaFrame() {
         final ListDAO dao = new ListDAO(getApplicationContext());
         ArrayList<ListaDeCompra> list = dao.getAllLists();

@@ -169,6 +169,10 @@ public class ListDAO {
 
     public void deleteList(int rowid) {
         SQLiteDatabase db = banco.getWritableDatabase();
+        ArrayList<Compra> items = getItemFromList(rowid);
+        for (Compra item:items) {
+            deleteItem(item.getRowid());
+        }
         db.delete("LISTA", "rowid = ?", new String[] {String.valueOf(rowid)});
     }
 

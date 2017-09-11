@@ -21,7 +21,7 @@
     <string name="keep_connected">Manter conectado</string>
     <string name="list_name">Nome da Lista</string>
     <string name="login">"Login: "</string>
-    <string name="login_btn">Login</string>
+    <string name="login_btn">Logar</string>
     <string name="menu_another_lists">Outras Listas</string>
     <string name="menu_new_list">Nova Lista</string>
     <string name="menu_show_markets">Mostrar mercados</string>
@@ -45,4 +45,7 @@
     <string name="password">"Senha: "</string>
     <string name="pass_empty_register">Senha não pode ser vazia</string>
     <string name="nearby_market">Mercados Próximos</string>
+    <string name="current_position">Posição Atual</string>
+    <string name="permission_denied">permissão negada</string>
+    <string name="map_error">Erro ao carregar lojas</string>
 </resources>

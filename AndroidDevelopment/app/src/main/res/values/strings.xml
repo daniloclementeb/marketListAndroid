@@ -53,4 +53,7 @@
     <string name="error_user_exists">User already in DB</string>
     <string name="error_server_off">Error server is off</string>
     <string name="nearby_market">Nearby Market</string>
+    <string name="current_position">Current Position</string>
+    <string name="permission_denied">permission denied</string>
+    <string name="map_error">There is an error</string>
 </resources>
