@@ -10,6 +10,7 @@ import android.support.v4.app.NotificationCompat;
 
 import com.clemente.danilo.androiddevelopment.activity.R;
 import com.clemente.danilo.androiddevelopment.activity.SplashActivity;
+import com.clemente.danilo.androiddevelopment.dao.ListDAO;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -18,8 +19,19 @@ public class MeuFirebaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage){
         //Verifica se a mensagem contém uma carga útil de dados
         if(remoteMessage.getData().size() > 0){
-            showNotification(remoteMessage.getData().get("descricao"),
-            remoteMessage.getData().get("descricao"));
+            //propaganda
+            if (!remoteMessage.getData().get("item").isEmpty()) {
+                String item = remoteMessage.getData().get("item");
+                ListDAO dao = new ListDAO(getApplicationContext());
+                if (dao.validaItem(item)) {
+                    showNotification(remoteMessage.getData().get("descricao"),
+                            remoteMessage.getData().get("descricao"));
+                }
+
+            } else {
+                showNotification(remoteMessage.getData().get("descricao"),
+                        remoteMessage.getData().get("descricao"));
+            }
 
         }
 

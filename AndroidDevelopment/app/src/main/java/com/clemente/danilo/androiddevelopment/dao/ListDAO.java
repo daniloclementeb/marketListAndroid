@@ -132,6 +132,14 @@ public class ListDAO {
         return saveItemInList(idLista, flag, nome, preco, qtt, 0) ;
     }
 
+    public boolean validaItem(String item) {
+        SQLiteDatabase db = banco.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT rowid, * FROM ITEM_COMPRA WHERE NOME_ITEM = ?;", new String[] {item});
+        if (c.getCount() > 0)
+            return true;
+        return false;
+    }
+
     public boolean saveItemInList(int idLista, int flag, String nome, double preco, int qtt, int rowid) {
         SQLiteDatabase db = banco.getWritableDatabase();
         ContentValues values = new ContentValues();
