@@ -48,4 +48,6 @@
     <string name="current_position">Posição Atual</string>
     <string name="permission_denied">permissão negada</string>
     <string name="map_error">Erro ao carregar lojas</string>
+    <string name="speakItemName">Fale o nome do Item</string>
+    <string name="not_supported">Não suportado</string>
 </resources>

@@ -15,14 +15,28 @@
         android:textSize="28dp"
         android:textColor="@color/text_color"
         android:id="@+id/novoItemNomeLista"/>
-    <EditText
-        android:layout_marginTop="10dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/text_color"
-        android:hint="@string/item_name"
-        android:textColor="@color/text_color"
-        android:id="@+id/novoItemNomeItem"/>
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/text_color"
+            android:hint="@string/item_name"
+            android:layout_weight="0.9"
+            android:textColor="@color/text_color"
+            android:id="@+id/novoItemNomeItem"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:id="@+id/ivVoice"
+            android:onClick="speak"
+            android:src="@drawable/ic_voice"/>
+    </LinearLayout>
+
     <EditText
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"

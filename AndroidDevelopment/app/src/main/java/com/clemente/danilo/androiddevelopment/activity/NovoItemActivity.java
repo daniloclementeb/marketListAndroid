@@ -1,7 +1,9 @@
 package com.clemente.danilo.androiddevelopment.activity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.clemente.danilo.androiddevelopment.model.Compra;
 import java.util.ArrayList;
 
 public class NovoItemActivity extends AppCompatActivity {
+    private final int REQ_CODE_SPEECH_INPUT = 100;
     private int listaId, rowid;
     private String nomeLista;
     TextView tvNomeLista;
@@ -78,4 +81,38 @@ public class NovoItemActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void speak(View v) {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "pt-BR");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                getString(R.string.speakItemName));
+        intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 10);
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(),
+                    getString(R.string.not_supported),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQ_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    EditText novoItemNomeItem = (EditText) findViewById(R.id.novoItemNomeItem);
+                    novoItemNomeItem.setText(result.get(0));
+                }
+                break;
+            }
+        }
+    }
+
 }
